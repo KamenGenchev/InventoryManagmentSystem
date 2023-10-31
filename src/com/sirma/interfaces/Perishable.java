@@ -5,5 +5,4 @@ public interface Perishable {
 
     void Perish();
 
-    void discard();
 }

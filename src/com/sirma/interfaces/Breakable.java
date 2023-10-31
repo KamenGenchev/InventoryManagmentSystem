@@ -3,9 +3,9 @@ package com.sirma.interfaces;
 public interface Breakable {
     boolean isBreakable();
 
-    void breakItem();
+    boolean isBroken();
 
-    void discard();
+    void breakItem();
 
     void repair();
 }

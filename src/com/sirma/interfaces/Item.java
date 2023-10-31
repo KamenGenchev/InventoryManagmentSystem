@@ -1,10 +1,10 @@
 package com.sirma.interfaces;
 
 public interface Item {
-    void getItemDetails();
+    String getItemDetails();
 
     double getValue();
 
-    void getDescription();
+    String getDescription();
 
 }
