@@ -4,13 +4,12 @@ import com.sirma.interfaces.*;
 
 import static com.sirma.settings.ItemStatusConstants.*;
 
-public abstract class AbstractItem implements Item, Categorizable, Breakable, Perishable, Sellable {
+public abstract class AbstractItem implements Item, Categorizable, Sellable {
     String name;
     String category;
     String description;
     double price;
-    boolean broken;
-    boolean perished;
+
 
     public AbstractItem(String name, String category, String description, double price) {
         this.name = name;
@@ -20,25 +19,6 @@ public abstract class AbstractItem implements Item, Categorizable, Breakable, Pe
     }
 
 
-    @Override
-    public boolean isBreakable() {
-        return true;
-    }
-
-    @Override
-    public boolean isBroken() {
-        return broken;
-    }
-
-    @Override
-    public void breakItem() {
-        this.broken = true;
-    }
-
-    @Override
-    public void repair() {
-        this.broken = false;
-    }
 
     @Override
     public void setCategory(String category) {
@@ -56,29 +36,8 @@ public abstract class AbstractItem implements Item, Categorizable, Breakable, Pe
     }
 
     @Override
-    public double getValue() {
-        if (broken){
-            return price / BROKEN_DISCOUNT;
-        }
-        if (perished) {
-            return price / PERISHED_DISCOUNT;
-        }
-        return this.price;
-    }
-
-    @Override
     public String getDescription() {
         return this.description;
-    }
-
-    @Override
-    public boolean isPerishable() {
-        return true;
-    }
-
-    @Override
-    public void Perish() {
-        perished = true;
     }
 
 
