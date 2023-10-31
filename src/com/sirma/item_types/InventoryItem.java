@@ -31,4 +31,9 @@ public class InventoryItem extends AbstractItem{
     public static String getID() {
         return String.valueOf(idCount++);
     }
+
+    @Override
+    public double getValue() {
+        return this.price * this.quantity;
+    }
 }
